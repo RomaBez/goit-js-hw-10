@@ -54,11 +54,13 @@ function addLeadingZero(value) {
 
 startButton.addEventListener('click', () => {
     startButton.disabled = true;
+    datePickField.disabled = true;
     const timeStarter = setInterval(() => {
         const currentTime = new Date();
         const differenceInTime = userSelectedDate - currentTime;
         if (differenceInTime <= 0) {
             clearInterval(timeStarter);
+             datePickField.disabled = false;
             timeSelectField.days.textContent = "00";
             timeSelectField.hours.textContent = "00";
             timeSelectField.minutes.textContent = "00";
